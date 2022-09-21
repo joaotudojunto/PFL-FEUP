@@ -94,4 +94,53 @@ classificaimc peso altura
 
 -- ex 1.11 
 
-               
+max, min :: Ord a => a -> a -> a
+max x y = if x>=y then x else y
+min x y = if x<=y then x else y
+
+max3 :: Integer -> Integer -> Integer -> Integer 
+max3 x y z 
+        | x >= y && x >= z =  x 
+        | y >= x && y >= z = y 
+        | otherwise = z 
+
+min3 :: Integer -> Integer -> Integer -> Integer 
+min3 x y z 
+        | x <= y && x <= z =  x 
+        | y <= x && y <= z = y 
+        | otherwise = z 
+
+
+
+-- ex 1.12
+
+xor :: Bool -> Bool -> Bool 
+xor x y 
+        | x == y = False 
+        | otherwise = True
+
+-- ex 1.13
+
+safetail :: [a] -> [a]
+safetail [] = [] 
+safetail (x:xs) = xs 
+
+safetail1 :: [a] -> [a]
+safetail1 list
+        | length list == 0 = [] 
+        | otherwise        = tail list
+
+
+safetail2 :: [a] -> [a]
+safetail2 list =  if length list == 0 then [] 
+                        else tail list
+
+-- ex 1.14
+
+curta :: [a] -> Bool 
+curta lista 
+        | length lista <= 2     = True 
+        | otherwise             = False
+
+-- ex 1.15 
+
