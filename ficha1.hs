@@ -144,3 +144,22 @@ curta lista
 
 -- ex 1.15 
 
+mediana1 ::  Integer -> Integer -> Integer -> Integer 
+mediana1 x y z 
+                | max3 x y z  == x = Main.max y z 
+                | max3 x y z  == y = Main.max x z 
+                | max3 x y z  == z = Main.max x y 
+
+mediana2 ::  Integer -> Integer -> Integer -> Integer 
+mediana2 x y z 
+                | x > y && x > z   && y > z      = y 
+                | y > x && y > z   && x > z      = x 
+                | otherwise                      = z 
+
+
+mediana ::  Integer -> Integer -> Integer -> Integer 
+mediana x y z  = x + y + z - max3 x y z  - min3 x y z  
+
+
+
+        
