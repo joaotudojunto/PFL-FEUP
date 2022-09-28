@@ -46,9 +46,24 @@ insert :: Ord a => a -> [a] -> [a]
 insert x [] = [x]
 insert x (y:ys) | x <= y = x : y : ys 
                 | otherwise = y : insert x ys
-                
+
 
 isort :: Ord a => [a] -> [a]
 isort [] = []
 isort (x:xs) = insert x (isort xs)
+
+-- 2.5
+
+minimum :: Ord a => [a] -> a 
+minimum [] = error "Lista vazia"
+minimum [x] = x
+minimum (x:y:xs) 
+        | x <= y = Main.minimum (x:xs)
+        | otherwise = Main.minimum (y:xs)
+
+delete :: Eq a => a -> [a] -> [a] 
+delete n [] = error "lista vazia"
+delete n (x:xs) 
+            | n == x = xs 
+            | otherwise = x : delete n xs 
 
