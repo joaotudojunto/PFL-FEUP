@@ -100,3 +100,29 @@ primo :: Integer -> Bool
 primo n = divprop n == [1]        
 
 
+-- 2.17
+
+{-}
+forte :: String -> Bool
+forte s = length s >= 8 && any isUpper s && any isLower s && any isDigit s
+-}
+
+-- 2.24 
+
+merge :: Ord a => [a] -> [a] -> [a]
+merge [] [] = []
+merge [] [x] = [x]
+merge [x] [] = [x]
+merge (x:xs) (y:ys) 
+        | x > y  = y : merge ys (x:xs)
+        | otherwise = x : merge xs (y:ys)
+
+msort :: Ord a => [a] -> [a]
+msort [] = []
+msort [x] = [x]
+msort x = merge (msort metades1) (msort metades2)
+        where (metades1, metades2) = splitAt (length x `div` 2) x
+
+
+metades :: [a] -> ([a],[a])
+metades n = splitAt (length n `div` 2) n
