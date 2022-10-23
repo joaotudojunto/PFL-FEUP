@@ -39,9 +39,8 @@ remover x (No a esq dir)
 removerAux :: Ord a => Arv a -> Arv a
 removerAux (No a Vazia dir) = dir
 removerAux (No a esq Vazia) = esq 
-removerAux (No a esq dir) 
-                | No n (remover n esq) dir 
-                where n = mais_dir esq
+removerAux (No a esq dir) =  No n (remover n esq) dir
+                            where n = mais_dir esq
 
 
 -- 4.9 
