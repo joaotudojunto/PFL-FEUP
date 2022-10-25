@@ -71,5 +71,63 @@ evaluateLength n
 
 -- FT 23 - Functional Types
 
+{- 
+mod = Fractional a => a -> a -> a 
+snd :: (a,b) -> b 
+[head, length] :: [[Int] -> Int]
+drop :: Int a => [a] -> [a]
+(!!) :: [a] => Int -> a
+zip :: [a] -> [b] -> [(a,b)]
+  
+-}
+
+-- FT 24 
+funcao :: (a,b,a) -> (b,a,b)
+funcao (x,y,z) = (y,x,y)
+
+---------------------- SEMANA 2 -----------------------------------------------------
+
+-- IN 17 
+
+fib :: (Num a, Ord a, Num p) => a -> p
+fib n 
+    | n == 0 = 0
+    | n == 1 = 1
+    | otherwise = fib(n-1) + fib(n-2) -- soma dos dois ultimos numeros da sequencia 1 1 2 3 5 8 13 21 34 55........
+
+-- IN 18
+
+ackermann :: (Num a, Ord a, Num t, Ord t) => a -> t -> t
+ackermann m n 
+            | m == 0                = n + 1
+            | (m > 0) && (n == 0)       = ackermann(m - 1)  1
+            | (m > 0) && (n > 0)        = ackermann(m-1) (ackermann m (n-1))
+            | otherwise = error "negative argument"
+
+-- Types
+
+scalarProduct :: Num a => [a] -> [a] -> a
+scalarProduct [] [] = 0 
+scalarProduct (x:xs)(y:ys) =  (x*y) + (scalarProduct xs ys) 
+
+-- FT 18
+
+seq22 :: Num a => Int -> [a]
+seq22 n = 1 : (take (n-2) (repeat 2)) ++ [1]
+
+seq42 :: Num a => Int -> [a]
+--seq42 n = 1 : (take (n-5) (repeat 4)) ++ (take (n-5) (repeat 2)) ++ (take (n-5) (repeat 4)) ++ (take (n-5) (repeat 2))  ++ [1]
+seq42 n = 1:(take (n -2) (cycle [4 ,2])) ++ [1]
+
+-- Lists by recursion LI-13
 
 
+
+
+-- LI-14
+myGroup :: Eq a => [a] -> [[a]]
+myGroup [] = [] 
+myGroup [x] = [[x]] 
+myGroup (x:y:xs)
+        | x == y = (x:y:xs) : myGroup (y:xs)
+        | otherwise = [x] : myGroup (y:xs)
