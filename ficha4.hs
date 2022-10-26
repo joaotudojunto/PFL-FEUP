@@ -51,6 +51,6 @@ elefantes n = elefantesAux 2 n -- começa em 2 elefantes... até N
 elefantesAux :: Int -> Int -> IO ()
 elefantesAux i n
     | (i < n) = do putStrLn $ "Se " ++ show i ++ " elefantes incomodam muita gente,"
-                   putStrLn $ show (i+1) ++ " incomodam muito mais!"
+                   putStrLn $ show (i+1) ++ " elefantes incomodam muito mais!"
                    elefantesAux (i+1) n -- i++ 
     | otherwise = return ()

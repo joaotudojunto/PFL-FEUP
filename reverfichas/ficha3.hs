@@ -18,8 +18,8 @@ zipWith10 _ _ [] = []
 zipWith1 f (x:xs) (y:ys) = f x y : zipWith1 f xs ys
 
 -- 3.4
-isort :: Ord a => [a] -> [a]
-isort xs = foldr insert [] xs
+--isort :: Ord a => [a] -> [a]
+--isort xs = foldr insert [] xs
 
 -- 3.5
 myMaximum :: Ord a => [a] -> a
@@ -45,8 +45,21 @@ myreverse xs = foldr (\a b -> b ++ [a]) [] xs
 
 -- (d)
 myreverse2 :: [a] -> [a]
-myreverse2 xs = foldl(\a b -> [b] ++ a) [] xs
+myreverse2 xs = foldl(\x acc -> acc : x) [] xs
 
 -- (e)
 myelem :: Eq a => a -> [a] -> Bool
 myelem a xs = any (\b -> b == a) xs
+
+
+
+
+
+
+
+
+
+
+
+
+  
