@@ -23,7 +23,7 @@ remover x (No a esq dir)
         | x < a  = No a (remover x esq) dir 
         | x > a  = No a esq (remover x dir) 
         | x == a = let novo = maisEsq dir 
-                in No novo esq (remover novo dir)
+                in No a esq (remover novo dir)
 
 -}
 
@@ -57,6 +57,10 @@ mapArv f (No a esq dir) = No (f a) (mapArv f esq) (mapArv f dir)
 maisDir :: Arv a -> a
 maisDir (No node _ Vazia) = node 
 maisDir (No node esq dir) = maisDir dir
+
+maisEsq :: Arv a -> a
+maisEsq (No node Vazia _) = node
+maisEsq (No node esq dir) = maisEsq esq 
 
 --b
 remover :: Ord a => a -> Arv a -> Arv a 
