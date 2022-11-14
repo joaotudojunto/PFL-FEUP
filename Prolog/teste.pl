@@ -97,13 +97,11 @@ b)
 A Haley é do sexo feminino? - female(haley).
 O Gil é do sexo masculino? - male(Gil). - no 
 O Frank é progenitor do Phil? - parent(frank, phil). 
-Quem são os pais da Claire? - parent(dede,claire), parent(jay,claire).
-Quem são os filhos da Gloria? - parent(gloria,manny), parent(gloria,joe).
-Quem são os netos do Jay? - 
-
-
-
-
-
+Quem são os pais da Claire? - parent(dede,claire), parent(jay,claire). ou parent(X,claire) -> n ? 
+Quem são os filhos da Gloria? - parent(gloria,manny), parent(gloria,joe).  ou parent(gloria, X) -> n? 
+Quem são os netos do Jay? - grandfather (jay, X). n ?
+Quem são os avós da Lily? - grandfather(X, lily).
+A Alex tem filhos? - parent(alex, X). 
+Quem é filho do Jay, mas não da Gloria? - parent(jay, X), \+ parent(gloria, X).
 
 */
