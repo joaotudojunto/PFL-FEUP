@@ -26,7 +26,7 @@ isPrime(X) :- X > 2, X mod 2 =\= 0, \+ hasFactor(X,3).
 
 % exercicio 2 
 
-ancestor(X, Y) :- ancestor(X, Z), ancestor (Z, Y). 
+ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
 descendent(X, Y) :- ancestor(Y, X).
 
 % exercicio 3
@@ -49,4 +49,12 @@ superior(X, Y) :- chefiado_por(Y, X).
 % l) one = leic, Rest = [two, tail]
 
 % exercicio 5
+
+list_size([], 0).
+list_size([_ | Tail], N) :- list_size(Tail, N1), N is N1 + 1.
+
+list_sum([], 0).
+list_sum([Head | Tail], Sum) :- list_sum(Tail, Sum1), Sum is Sum1 + Head.
+
+
 
