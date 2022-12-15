@@ -56,5 +56,26 @@ list_size([_ | Tail], N) :- list_size(Tail, N1), N is N1 + 1.
 list_sum([], 0).
 list_sum([Head | Tail], Sum) :- list_sum(Tail, Sum1), Sum is Sum1 + Head.
 
+list_prod([], 1).
+list_prod([Head | Tail], Mult) :- list_prod(Tail, Mult1), Mult is Mult1 * Head.
+
+inner_product([], [], 0).
+inner_product([Head1 | Tail1], [Head2 | Tail2], Sum) :- inner_product(Tail1, Tail2, Sum1), Sum is Sum1 + Head1 * Head2.
+
+% count (X, [], 0).
+% count(X, [Head | Tail], N) :- X = Head, count(X, Tail, N1), N is N1 + 1.
+
+count (X, [], 0).
+count(X, [X | Tail], N) :- count(X, Tail, N1), N is N1 + 1.
+
+% Exercicio 6 
+
+invert(L1, L2) :- reverse(L1, [], L2). 
+reverse([], L, L).
+reverse([Head | Tail], Acc, L) :- reverse(Tail, [Head | Acc], L).
+
+del_one(X, [], L2).
+del_one()
+
 
 
