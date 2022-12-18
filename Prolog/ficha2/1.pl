@@ -65,8 +65,6 @@ inner_product([Head1 | Tail1], [Head2 | Tail2], Sum) :- inner_product(Tail1, Tai
 % count (X, [], 0).
 % count(X, [Head | Tail], N) :- X = Head, count(X, Tail, N1), N is N1 + 1.
 
-count (X, [], 0).
-count(X, [X | Tail], N) :- count(X, Tail, N1), N is N1 + 1.
 
 % Exercicio 6 
 
@@ -74,8 +72,15 @@ invert(L1, L2) :- reverse(L1, [], L2).
 reverse([], L, L).
 reverse([Head | Tail], Acc, L) :- reverse(Tail, [Head | Acc], L).
 
-del_one(X, [], L2).
-del_one()
+del_one(X, [X], []). 
+del_one(X, [ X | Tail], Tail).
+del_one(X, [Head | Tail], [Head | Tail1]) :- del_one(X, Tail, Tail1). % del_one(1, [1,2,3], Newlist).
 
+replicate(0, _, []).
+replicate(Amount, X, [X | Tail]) :- Amount > 0, Amount1 is Amount - 1, replicate(Amount1, X, Tail).
 
+intersperse(_, [], []).
+intersperse(X, [Head | Tail], [Head, X | Tail1]) :- intersperse(X, Tail, Tail1).
 
+list_append([], L, L).
+list_append([Head | Tail], L, [Head | Tail1]) :- list_append(Tail, L, Tail1).
