@@ -74,7 +74,8 @@ couple(P1-P2) :- parent(P1, Child), parent(P2, Child), P1 \= P2.
 %e) 
 couples(Couples) :- setof(Couple, couple(Couple), Couples). 
 
-a(X, Y):- b(X), !, b(Y).
-a(3, 4).
-b(2).
-b(3).
+%f) 
+spouse_children(Person, Spouse/Children) :- couple(Person-Spouse), children(Person, Children). 
+
+%g) 
+immediate_family(Person, Parents-SC) :- findall(Parent, parent(Parent, Person), Parents), spouse_children(Person, SC).
