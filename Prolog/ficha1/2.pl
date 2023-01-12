@@ -55,7 +55,7 @@ alunos(Y, X) :- frequenta(Y, Z), leciona(X, Z). % Quem sao os alunos do professo
 aluno(X, Y) :- leciona(Y, Z), frequenta(X, Z). % Quem são os professores do aluno X?
 mesmotempoAluno(A, X, Y) :- alunos(A, X), alunos(A, Y). % Quem é ao mesmo tempo aluno do professor X e do professor Y?
 colega(X,Y) :- alunos(X, Z), alunos(Y, Z). % Quem é colega de quem? dois alunos sao colegas se frequentarem pelo menos uma UC em comum dois docentes sao colegas
-frequentaMaisde1UC(X, Z, H) :- mesmotempoAluno(X, Z, H). % not working 
+frequentaMaisde1UC(A) :- frequenta(A,X), frequenta(A,Y), X @< Y.
 
 
 

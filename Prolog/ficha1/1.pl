@@ -80,17 +80,6 @@ parent(haley, george).
 parent(haley, poppy).
 
 
-%regras
-
-grandfather(X,Y) :- parent(X,Z), parent(Z,Y).
-grandmother(X,Y) :- grandparent(X,Y), female(X).
-father(X,Y) :- parent(X,Y), male(X).
-mother(X,Y) :- parent(X,Y), female(X).
-sibilings(X,Y) :- parent(P1, X), parent(P1, Y), parent(P2, X), parent(P2, Y), (X \= Y), (P1 \= P2). 
-cousins(X,Y) :- parent(P1, X), sibilings(P1, P2), parent(P2, Y), (X \=Y), (P1 \= P2).
-uncle(X,Y) :- parent(P,Y), siblings(X,P). 
-
-
 /*
 b) 
 
@@ -105,3 +94,33 @@ A Alex tem filhos? - parent(alex, X).
 Quem é filho do Jay, mas não da Gloria? - parent(jay, X), \+ parent(gloria, X).
 
 */
+
+
+%c) regras
+
+grandparent(X,Y) :- parent(X,Z), parent(Z,Y).
+grandmother(X,Y) :- grandparent(X,Y), female(X).
+father(X,Y) :- parent(X,Y), male(X).
+mother(X,Y) :- parent(X,Y), female(X).
+sibilings(X,Y) :- parent(P1, X), parent(P1, Y), parent(P2, X), parent(P2, Y), (X \= Y), (P1 \= P2). 
+cousins(X,Y) :- parent(P1, X), sibilings(P1, P2), parent(P2, Y), (X \=Y), (P1 \= P2).
+uncle(X,Y) :- parent(P,Y), sibilings(X,P), male(X).
+
+
+%d) 
+/*
+cousins(haley,lily).
+father(X, luke).
+uncle(X, lily). <- não tem tio, tem tia apenas
+grandmother(X,Y).
+
+*/
+
+%e) 
+
+married(A,B,Y) :- married(B,A,Y). 
+divorced(A,B,Y) :- divorced(B,A,Y). 
+
+married(jay,gloria,2008).
+married(jay,dede,1968).
+divorced(jay,dede,2003).
