@@ -5,6 +5,7 @@ s(3).
 % Ex 1 
 % a) X = 1, no, X =2, no -> no, não avalia o S(3)
 % b) X = 1, Y = 1?  X=2, Y=1? X=1, Y = 2? X=2, Y=2? no. 
+% c) X = 1 e Y=1? no X=1 e Y=2? no
 
 % ex 2 
 
@@ -17,6 +18,12 @@ cut_test_b(X):- data(X), !.
 cut_test_b('five').
 cut_test_c(X, Y):- data(X), !, data(Y).
 cut_test_c('five', 'five').
+
+/*
+a) | ?- cut_test_a(X), write(X), nl, fail.  -> one, two, three, five, no
+b) | ?- cut_test_b(X), write(X), nl, fail. -> one, no
+c) | ?- cut_test_c(X, Y), write(X-Y), nl, fail. -> one-one, one-two, one-three
+*/
 
 % ex 3
 % todos red? influenciam resultado..  
