@@ -41,3 +41,11 @@ flight(madrid, paris, iberia, ib3444, 1640, 125).
 flight(madrid, london, iberia, ib3166, 1550, 145).
 flight(london, madrid, iberia, ib3163, 1030, 140).
 flight(porto, frankfurt, lufthansa, lh1177, 1230, 165).
+
+
+%a 
+get_all_nodes(ListOfAirports) :- setof(AeroportFrom, (A, B, C, D, AeroportTo)^(flight(AeroportFrom, AeroportTo, A, B, C, D)), ListOfAirports).
+
+%b 
+most_diversified(Company) :- setof(Companhia, (flight(A,B,Companhia,C,D,E)), Company);
+

@@ -94,6 +94,18 @@ spouse_children(Person, Spouse/Children) :- couple(Person-Spouse), children(Pers
 %g) 
 immediate_family(Person, Parents-SC) :- findall(Parent, parent(Parent, Person), Parents), spouse_children(Person, SC).
 
+
+
+
+
+
+
+
+
+
+
+
+
 % ex 6 
 
 leciona(algoritmos, adalberto).
